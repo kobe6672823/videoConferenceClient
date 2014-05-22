@@ -1,0 +1,20 @@
+#ifndef MYWIDGET_H
+#define MYWIDGET_H
+
+#include <QtGui/QWidget>
+#include <QtGui/QPaintEvent>
+#include <QtGui/QImage>
+#include <QtCore/QTimer>
+
+class MyWidget:public QWidget
+{
+Q_OBJECT
+public:
+    MyWidget(QWidget *parent=0);
+    ~MyWidget();
+
+    
+protected:
+    void paintEvent(QPaintEvent *e);    
+};
+#endif // MYWIDGET_H

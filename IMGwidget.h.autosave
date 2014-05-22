@@ -1,0 +1,29 @@
+#ifndef IMGWIDGET_H
+#define IMGWIDGET_H
+
+#include <QtGui/QWidget>
+#include <QtGui/QPaintEvent>
+#include <QtGui/QImage>
+#include <QtCore/QTimer>
+#include <QMutex>
+#include <queue>
+
+class IMGWidget:public QWidget
+{
+Q_OBJECT
+public:
+    IMGWidget(QWidget *parent=0);
+    ~MyWidget();
+
+    
+protected:
+    void paintEvent(QPaintEvent *e);   
+    
+private slots:
+    void paintNextIMG();
+    
+private:
+    std::queue<QImage> IMGQueue;
+    QMutex IMGQueueLock;
+};
+#endif // IMGWIDGET_H
