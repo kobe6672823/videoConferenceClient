@@ -25,7 +25,9 @@ struct node
 
 
 void* localIMGProducer(void *ptr);    //capture frame from local camera, insert QImage into local queue, and send it to remote endpoint
-//void* remoteIMGProducer(void *ptr);   //recvFrom from remote endPoint, insert QImage into remote queue
+void* remoteIMGProducer(void *ptr);   //recvFrom from remote endPoint, insert QImage into remote queue
 //void sendToRemote(void *buffer);    //send
 void sendImgToRemote(int sockfd, struct sockaddr_in &remoteAddr, QImage &curImg, int frameTimeStamp);    //compress, fragment and send img to remote endPoint
+void restoreVideoFrame(IMGWidget *remoteWidget, char *videoFrame, int len, int &preFrameTimeStamp, QByteArray &receivingFrameBuffer);  //restore the receiving fragment into QtImage
+
 #endif // FUNCFORTHREAD_H

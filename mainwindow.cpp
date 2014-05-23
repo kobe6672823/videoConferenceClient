@@ -20,11 +20,11 @@ MainWindow::MainWindow(QWidget *parent) :
     layOutForWidget->addWidget(localWidget);
     layOutForWidget->addWidget(remoteWidget);
 
-    receiver = new QUdpSocket(this);
+    //receiver = new QUdpSocket(this);
     //receiver->bind(RECEIVING_PORT, QUdpSocket::ShareAddress);
-    receiver->bind(RECEIVING_PORT);
-    connect(receiver, SIGNAL(readyRead()), this, SLOT(processPendingDatagram()));
-    preFrameTimeStamp = -1;
+    //receiver->bind(RECEIVING_PORT);
+    //connect(receiver, SIGNAL(readyRead()), this, SLOT(processPendingDatagram()));
+    //preFrameTimeStamp = -1;
 
     //create thread1(localIMGProducer): loop for capturing frame and translating it into localImageQueue, and send the frame to remote endpoint
     //struct ThreadParam localParam, remoteParam;
@@ -42,9 +42,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //create thread2(remoteIMGProducer): loop for receiving frame from remote endPoint and insert it into remote queue
     //remoteParam.imageQueuePtr = remoteWidget->getIMGQueuePtr();
     //remoteParam.mutexLockPtr = remoteWidget->getQueueLockPtr();
-    /*ret = pthread_create(&remoteProducerId, NULL, remoteIMGProducer, remoteWidget);
+    ret = pthread_create(&remoteProducerId, NULL, remoteIMGProducer, remoteWidget);
     if (ret)
-        std::cout << "Create pthread error!" << std::endl;*/
+        std::cout << "Create pthread error!" << std::endl;
 }
 
 MainWindow::~MainWindow()
