@@ -16,11 +16,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     IMGWidget.cpp \
-    funcForThread.cpp
+    funcForThread.cpp \
+    rawSocket.cpp
 
 HEADERS  += mainwindow.h \
     IMGWidget.h \
-    funcForThread.h
+    funcForThread.h \
+    rawSocket.h
 
 FORMS    += mainwindow.ui
 
